@@ -36,9 +36,9 @@ def main(window):
             data = window.store.movies
     inf_label = Label(text='Link', cordy=HEIGHT-2)
 
-    def open_link(name, link):
+    def open_link(link):
         inf_label.value = f'Opened {link}'
-        webbrowser.open(link + f"#{name}")
+        webbrowser.open(link)
 
     window += FilterMenu({
         'max_len': 20,
@@ -47,7 +47,7 @@ def main(window):
         'cordy': 1,
         'limit': HEIGHT-3,
         'items': sorted(data.keys()),
-        'on_enter': lambda sender: open_link(sender.value, data[sender.value])
+        'on_enter': lambda sender: open_link(data[sender.value])
     })
 
     window += inf_label

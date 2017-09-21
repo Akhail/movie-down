@@ -16,9 +16,6 @@ setup(
     name='movie-down',
     version=__version__,
     description='Interface to database movie for download',
-    long_description='''
-        Interface to database movie for download
-    ''',
     keywords='movie cli download',
     author='Michel Betancourt',
     author_email='MichelBetancourt23@gmail.com',
@@ -37,7 +34,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'tebless'
+        'tebless', 'bs4', 'requests'
     ],
     extras_require={
         'tests': [
@@ -52,6 +49,8 @@ setup(
             'sphinx',
         ],
     },
+    setup_requires=['setuptools-markdown'],
+    long_description_markdown_filename='README.md',
     entry_points={
         'console_scripts': [
             'mvdown=movie_down.movie_down:main'
